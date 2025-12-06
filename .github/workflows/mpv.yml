@@ -714,13 +714,6 @@ jobs:
         continue-on-error: true
         with:
           subject-path: 'artifacts/*.7z'
-      - name: Prune old releases
-        shell: bash
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          git checkout main
-          bash prunetags.sh
 
   cache:
     name: keep cache alive
