@@ -71,9 +71,9 @@ jobs:
           sudo GOBIN=/usr/bin go install go.chromium.org/luci/cipd/client/cmd/...@latest
           sudo cipd install fuchsia/third_party/clang/linux-amd64 latest -root /usr/local/fuchsia-clang
           echo "PATH=/usr/local/fuchsia-clang/bin:$PATH" >> $GITHUB_ENV
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - name: Checkout toolchain
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           repository: MartinEesmaa/mpv-winbuild-cmake
           path: mpv-winbuild-cmake
@@ -115,7 +115,7 @@ jobs:
           extra_option: "-DLLVM_ENABLE_PGO=USE -DLLVM_ENABLE_LTO=Thin -DLLVM_PROFDATA_FILE=$buildroot/llvm.profdata"
 
       - name: Save llvm cache
-        uses: actions/cache/save@v5.0.5
+        uses: actions/cache/save@v6.1.0
         if: ${{ !inputs.no_save_cache }}
         with: 
           path: |
